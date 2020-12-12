@@ -6,6 +6,14 @@ function StocksComponent() {
     {
       stock: "GOR",
       isCompleted: true
+    }, 
+    {
+      stock: "ASX",
+      isCompleted: true
+    }, 
+    {
+      stock: "CSL",
+      isCompleted: true
     }
   ]);
 
