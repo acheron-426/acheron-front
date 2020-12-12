@@ -1,63 +1,63 @@
 import React, { useState } from "react";
 
-function TodosComponent() {
-  const [currentTodo, setCurrentTodo] = useState("");
-  const [todos, setTodos] = useState([
+function StocksComponent() {
+  const [currentStock, setCurrentStock] = useState("");
+  const [stocks, setStocks] = useState([
     {
       todo: "GOR",
       isCompleted: true
     }
   ]);
 
-  function createNewTodo(currentTodo) {
-    let todosArray = [...todos];
-    todosArray.push({
-      todo: currentTodo,
+  function createNewStock(currentStock) {
+    let stocksArray = [...stocks];
+    stocksArray.push({
+      stock: currentStock,
       isCompleted: false
     });
-    setTodos(todosArray);
+    setStocks(stocksArray);
   }
 
-  function completeTodo(index) {
-    let todosArray = [...todos];
-    todosArray[index].isCompleted = !todosArray[index].isCompleted;
-    setTodos(todosArray);
+  function completeStock(index) {
+    let stocksArray = [...stocks];
+    stockArray[index].isCompleted = !stocksArray[index].isCompleted;
+    setStocks(stocksArray);
   }
 
-  function deleteTodo(index) {
-    let todosArray = [...todos];
-    todosArray.splice(index, 1);
-    setTodos(todosArray);
+  function deleteStock(index) {
+    let stocksArray = [...stocks];
+    stocksArray.splice(index, 1);
+    setStocks(stocksArray);
   }
 
   return (
     <div>
       <input
-        className="todo-input"
-        value={currentTodo}
+        className="stock-input"
+        value={currentStock}
         onChange={e => {
-          setCurrentTodo(e.target.value);
+          setCurrentStock(e.target.value);
         }}
         onKeyPress={e => {
           if (e.key === "Enter") {
-            createNewTodo(currentTodo);
-            setCurrentTodo("");
+            createNewStock(currentStock);
+            setCurrentStock("");
           }
         }}
-        placeholder="What needs to get done?"
+        placeholder="Add ticker"
       />
-      {todos.map((todo, index) => (
-        <div key={todo} className="todo">
-          <div className="checkbox" onClick={() => completeTodo(index)}>
-            {todo.isCompleted && <span>&#x2714;</span>}
+      {stocks.map((stock, index) => (
+        <div key={stock} className="stock">
+          <div className="checkbox" onClick={() => completeStock(index)}>
+            {stock.isCompleted && <span>&#x2714;</span>}
           </div>
-          <div className={todo.isCompleted ? "done" : ""}>{todo.todo}</div>
-          <div className="delete" onClick={() => deleteTodo(index)}>
+          <div className={stock.isCompleted ? "done" : ""}>{stock.stock}</div>
+          <div className="delete" onClick={() => deleteStock(index)}>
             &#128465;
           </div>
         </div>
       ))}
-      {todos.length > 0 && `${todos.length} items`}
+      {stocks.length > 0 && `${stocks.length} stocks`}
     </div>
   );
 }
