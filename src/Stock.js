@@ -4,7 +4,7 @@ function StocksComponent() {
   const [currentStock, setCurrentStock] = useState("");
   const [stocks, setStocks] = useState([
     {
-      todo: "GOR",
+      stock: "GOR",
       isCompleted: true
     }
   ]);
