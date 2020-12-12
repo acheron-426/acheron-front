@@ -4,13 +4,13 @@
   padding: 32px;
 }
 
-.todo-input {
+.stock-input {
   font-size: 24px;
   border: none;
   width: 100%;
 }
 
-.todo-input:focus {
+.stock-input:focus {
   outline: none;
 }
 
@@ -18,7 +18,7 @@
   text-decoration: line-through;
 }
 
-.todo {
+.stock {
   margin: 32px 0px;
   display: flex;
   align-items: center;
