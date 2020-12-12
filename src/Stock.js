@@ -5,15 +5,15 @@ function StocksComponent() {
   const [stocks, setStocks] = useState([
     {
       stock: "GOR",
-      isCompleted: true
+      isCompleted: false
     }, 
     {
       stock: "ASX",
-      isCompleted: true
+      isCompleted: false
     }, 
     {
       stock: "CSL",
-      isCompleted: true
+      isCompleted: false
     }
   ]);
 
