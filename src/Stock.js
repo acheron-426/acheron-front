@@ -20,7 +20,7 @@ function StocksComponent() {
 
   function completeStock(index) {
     let stocksArray = [...stocks];
-    stockArray[index].isCompleted = !stocksArray[index].isCompleted;
+    stocksArray[index].isCompleted = !stocksArray[index].isCompleted;
     setStocks(stocksArray);
   }
 
