@@ -14,17 +14,19 @@
 }
 
 .stock-container {
-  padding-left: 0px;
-  padding-right: 0px;
-  margin-top: 0px;
+  padding-left: 0em;
+  padding-right: 0em;
+  margin-top: 0em;
 }
 
 table {
   display: flex;
   justify-content: center;
   border: 1px solid gray;
+  border-collapse: collapse;
 }
 td {
   border: 1px solid gray;
-  width: 20px;
+  width: 10em;
+  font-size: 12px
 }
