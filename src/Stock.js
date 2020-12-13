@@ -56,3 +56,5 @@ const Stock = ({ code, isin_code, desc_full, last_price }) => {
     </table>
   );
 };
+
+export default Stocks;
