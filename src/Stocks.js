@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { stockData } from "./data";
+import { stockData, stockList } from "./data";
 
 export const Stocks = () => {
   return (

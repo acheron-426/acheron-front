@@ -1,3 +1,48 @@
+export const stockList = [
+    "GOR",
+    "SVY",
+    "XPE",
+    "IMM",
+    "DVL",
+    "SCU",
+    "FMS",
+    "CGB",
+    "CPH",
+    "MSM",
+    "CAP",
+    "FGO",
+    "SI6",
+    "RHT",
+    "NMR",
+    "EME",
+    "VKA",
+    "ECS",
+    "MXC",
+    "4CE",
+    "DAV",
+    "ELT",
+    "DEX",
+    "GO2",
+    "NAG",
+    "VAL",
+    "ARR",
+    "AFR",
+    "WWI",
+    "SPN",
+    "3DA",
+    "DCC",
+    "TMK",
+    "NSX",
+    "JAY",
+    "DDT",
+    "SE1",
+    "MRD",
+    "PSL",
+    "VIC",
+    "VPR",
+    "YPB"
+]
+
 export const stockData = [
     {
       company: "Twitter Inc",
@@ -36,4 +81,3 @@ export const stockData = [
       timeElapsed: "12 sec ago"
     }
   ];
-  
