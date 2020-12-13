@@ -17,7 +17,7 @@ export const Stocks = () => {
             <h5>Last</h5>
           </td>
           <td>
-            <h4>PE</h4>
+            <h5>PE</h5>
           </td>
           <td>
             <p>avg daily vol.</p>
@@ -62,7 +62,7 @@ const Stock = ({ code, last_price, pe, average_daily_volume }) => {
             <h5>{last_price}</h5>
           </td>
           <td>
-            <h4>{pe}</h4>
+            <h5>{pe}</h5>
           </td>
           <td>
             <p>{average_daily_volume}</p>
