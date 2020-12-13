@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { stockData } from "./data";
 
 function StocksComponent() {
   const [currentStock, setCurrentStock] = useState("");
@@ -54,7 +55,37 @@ function StocksComponent() {
         }}
         placeholder="Add ticker"
       />
-      {stocks.map((stock, index) => (
+
+      <div className="stock-container">
+        {stockData.map((data, key) => {
+          return (
+            <div key={key}>
+              {data.code +
+                " , " +
+                data.last_price +
+                " ," +
+                data.volume +
+                ", " +
+                data.pe +
+                ", " +
+                data.eps +
+                ", " +
+                data.average_daily_volume +
+                ", " +
+                data.market_cap +
+                ", " +
+                data.average_daily_volume +
+                ", " +
+                data.average_daily_volume +
+                ", " +
+                data.average_daily_volume +
+                ", " +
+                data.average_daily_volume}
+            </div>
+          );
+        })}
+      </div>
+      {/*stocks.map((stock, index) => (
         <div key={stock} className="stock">
           <div className="checkbox" onClick={() => completeStock(index)}>
             {stock.isCompleted && <span>&#x2714;</span>}
@@ -64,8 +95,8 @@ function StocksComponent() {
             &#128465;
           </div>
         </div>
-      ))}
-      {stocks.length > 0 && `${stocks.length} stocks`}
+      ))*/}
+      {/*stocks.length > 0 && `${stocks.length} stocks`*/}
     </div>
   );
 }

@@ -18,6 +18,12 @@
   text-decoration: line-through;
 }
 
+.stock-container {
+  padding-left: 3em;
+  padding-right: 3em;
+  margin-top: 3em;
+}
+
 .stock {
   margin: 32px 0px;
   display: flex;
