@@ -1,103 +1,58 @@
-import React, { useState } from "react";
+import React from "react";
+import "./App.css";
 import { stockData } from "./data";
 
-function StocksComponent() {
-  const [currentStock, setCurrentStock] = useState("");
-  const [stocks, setStocks] = useState([
-    {
-      stock: "GOR",
-      isCompleted: false
-    }, 
-    {
-      stock: "ASX",
-      isCompleted: false
-    }, 
-    {
-      stock: "CSL",
-      isCompleted: false
-    }
-  ]);
-
-  function createNewStock(currentStock) {
-    let stocksArray = [...stocks];
-    stocksArray.push({
-      stock: currentStock,
-      isCompleted: false
-    });
-    setStocks(stocksArray);
-  }
-
-  function completeStock(index) {
-    let stocksArray = [...stocks];
-    stocksArray[index].isCompleted = !stocksArray[index].isCompleted;
-    setStocks(stocksArray);
-  }
-
-  function deleteStock(index) {
-    let stocksArray = [...stocks];
-    stocksArray.splice(index, 1);
-    setStocks(stocksArray);
-  }
-
+export const Stocks = () => {
   return (
-    <div>
-      <input
-        className="stock-input"
-        value={currentStock}
-        onChange={e => {
-          setCurrentStock(e.target.value);
-        }}
-        onKeyPress={e => {
-          if (e.key === "Enter") {
-            createNewStock(currentStock);
-            setCurrentStock("");
-          }
-        }}
-        placeholder="Add ticker"
-      />
-
+    <>
+      <HomePageHeader />
       <div className="stock-container">
         {stockData.map((data, key) => {
           return (
             <div key={key}>
-              {data.code +
-                " , " +
-                data.last_price +
-                " ," +
-                data.volume +
-                ", " +
-                data.pe +
-                ", " +
-                data.eps +
-                ", " +
-                data.average_daily_volume +
-                ", " +
-                data.market_cap +
-                ", " +
-                data.average_daily_volume +
-                ", " +
-                data.average_daily_volume +
-                ", " +
-                data.average_daily_volume +
-                ", " +
-                data.average_daily_volume}
+              <Stock
+                key={key}
+                code={data.code}
+                isin_code={data.isin_code}
+                desc_full={data.desc_full}
+                last_price={data.last_price}
+              />
             </div>
           );
         })}
       </div>
-      {/*stocks.map((stock, index) => (
-        <div key={stock} className="stock">
-          <div className="checkbox" onClick={() => completeStock(index)}>
-            {stock.isCompleted && <span>&#x2714;</span>}
-          </div>
-          <div className={stock.isCompleted ? "done" : ""}>{stock.stock}</div>
-          <div className="delete" onClick={() => deleteStock(index)}>
-            &#128465;
-          </div>
-        </div>
-      ))*/}
-      {/*stocks.length > 0 && `${stocks.length} stocks`*/}
-    </div>
+    </>
   );
-}
-export default StocksComponent;
+};
+
+const HomePageHeader = () => {
+  return (
+    <header className="header">
+      <h2>Stock List</h2>
+    </header>
+  );
+};
+
+const Stock = ({ code, isin_code, desc_full, last_price }) => {
+  if (!code) return <div />;
+  return (
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <h5>{code}</h5>
+          </td>
+          <td>
+            <h5>{isin_code}</h5>
+          </td>
+          <td>
+            <h4>{desc_full}</h4>
+          </td>
+          <td>
+            <p>{last_price}</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
