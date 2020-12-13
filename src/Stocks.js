@@ -12,10 +12,10 @@ export const Stocks = () => {
             <div key={key}>
               <Stock
                 key={key}
-                company={data.company}
-                ticker={data.ticker}
-                stockPrice={data.stockPrice}
-                timeElapsed={data.timeElapsed}
+                code={data.code}
+                last_price={data.last_price}
+                pe={data.pe}
+                average_daily_volume={data.average_daily_volume}
               />
             </div>
           );
@@ -33,23 +33,23 @@ const HomePageHeader = () => {
   );
 };
 
-const Stock = ({ company, ticker, stockPrice, timeElapsed }) => {
-  if (!company) return <div />;
+const Stock = ({ code, last_price, pe, average_daily_volume }) => {
+  if (!code) return <div />;
   return (
     <table>
       <tbody>
         <tr>
           <td>
-            <h5>{company}</h5>
+            <h5>{code}</h5>
           </td>
           <td>
-            <h5>{ticker}</h5>
+            <h5>{last_price}</h5>
           </td>
           <td>
-            <h4>{stockPrice}</h4>
+            <h4>{pe}</h4>
           </td>
           <td>
-            <p>{timeElapsed}</p>
+            <p>{average_daily_volume}</p>
           </td>
         </tr>
       </tbody>
