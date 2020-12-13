@@ -7,6 +7,22 @@ export const Stocks = () => {
     <>
       <HomePageHeader />
       <div className="stock-container">
+    <table>
+      <tbody>
+        <th>
+          <td>
+            <h5>Code</h5>
+          </td>
+          <td>
+            <h5>Last</h5>
+          </td>
+          <td>
+            <h4>PE</h4>
+          </td>
+          <td>
+            <p>avg daily vol.</p>
+          </td>
+        </th>
         {stockData.map((data, key) => {
           return (
             <div key={key}>
@@ -20,6 +36,8 @@ export const Stocks = () => {
             </div>
           );
         })}
+        </tbody>
+    </table>
       </div>
     </>
   );
@@ -28,7 +46,7 @@ export const Stocks = () => {
 const HomePageHeader = () => {
   return (
     <header className="header">
-      <h2>Your Stock Tracker</h2>
+      <h2>Market Data</h2>
     </header>
   );
 };
@@ -36,8 +54,6 @@ const HomePageHeader = () => {
 const Stock = ({ code, last_price, pe, average_daily_volume }) => {
   if (!code) return <div />;
   return (
-    <table>
-      <tbody>
         <tr>
           <td>
             <h5>{code}</h5>
@@ -52,7 +68,5 @@ const Stock = ({ code, last_price, pe, average_daily_volume }) => {
             <p>{average_daily_volume}</p>
           </td>
         </tr>
-      </tbody>
-    </table>
   );
 };
