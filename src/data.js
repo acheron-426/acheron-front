@@ -1,3 +1,5 @@
+const API = "https://www.asx.com.au/asx/1/share/GOR";
+
 export const stockData = [
     {
         "code": "GOR",
@@ -31,92 +33,6 @@ export const stockData = [
         "number_of_shares": "879924748",
         "deprecated_market_cap": "1077908000",
         "deprecated_number_of_shares": "879924748",
-        "suspended": "false",
-        "indices": [
-          {
-            "index_code": "XJO",
-            "name_full": "S&P/ASX 200",
-            "name_short": "S&P/ASX200",
-            "name_abrev": "S&P/ASX 200"
-          },
-          {
-            "index_code": "XKO",
-            "name_full": "S&P/ASX 300",
-            "name_short": "S&P/ASX300",
-            "name_abrev": "S&P/ASX 300"
-          },
-          {
-            "index_code": "XAO",
-            "name_full": "ALL ORDINARIES",
-            "name_short": "ALL ORDS",
-            "name_abrev": "All Ordinaries"
-          },
-          {
-            "index_code": "XSO",
-            "name_full": "S&P/ASX SMALL ORDINARIES",
-            "name_short": "Small Ords",
-            "name_abrev": "S&P/ASX Small Ords"
-          },
-          {
-            "index_code": "XAT",
-            "name_full": "S&P/ASX All Australian 200",
-            "name_short": "Aust 200",
-            "name_abrev": "All Australian 200"
-          },
-          {
-            "index_code": "XGD",
-            "name_full": "S&P/ASX All Ordinaries Gold (Sub Industry)",
-            "name_short": "S&P AO GLD",
-            "name_abrev": "Gold"
-          },
-          {
-            "index_code": "XMJ",
-            "name_full": "S&P/ASX 200 Materials (Sector)",
-            "name_short": "Mats",
-            "name_abrev": "Materials"
-          },
-          {
-            "index_code": "XMM",
-            "name_full": "S&P/ASX 300 Metals and Mining (Industry)",
-            "name_short": "MTL&MINING",
-            "name_abrev": "Metals and Mining"
-          },
-          {
-            "index_code": "XJR",
-            "name_full": "S&P/ASX 200 RESOURCES",
-            "name_short": "S&P200 Res",
-            "name_abrev": "S&P/ASX 200 Res"
-          }
-        ]
-      },
-      {
-        "code": "SVY",
-        "isin_code": "AU000000SVY1",
-        "desc_full": "Ordinary Fully Paid",
-        "last_price": "0.87",
-        "open_price": "0.86",
-        "day_high_price": "0.88",
-        "day_low_price": "0.855",
-        "change_price": "0.015",
-        "change_in_percent": "1.754%",
-        "volume": "98271",
-        "bid_price": "0.87",
-        "offer_price": "0.88",
-        "previous_close_price": "0.855",
-        "previous_day_percentage_change": "-3.933%",
-        "year_high_price": "1.03",
-        "last_trade_date": "2020-12-11T00:00:00+1100",
-        "year_high_date": "2019-12-12T00:00:00+1100",
-        "year_low_price": "0.265",
-        "year_low_date": "2020-03-23T00:00:00+1100",
-        "pe": "0",
-        "eps": "-0.0748",
-        "average_daily_volume": "768070",
-        "annual_dividend_yield": "0",
-        "market_cap": "223122041",
-        "number_of_shares": "260961452",
-        "deprecated_market_cap": "227036000",
-        "deprecated_number_of_shares": "260961452",
         "suspended": "false"
-      }      
+      }    
   ];
