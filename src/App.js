@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function App() {
   const [stocks, setStocks] = useState(null);
-  const [symbols, setSymbols] = useState("GOR.AX,SVY.AX,PEX.AX,KDR.AX,SGQ.AX,BRB.AX,SFR.AX");
+  const [symbols, setSymbols] = useState("GOR.AX,SVY.AX,PEX.AX,SGQ.AX,BRB.AX,SFR.AX");
   
   const options = {
     method: 'GET',
