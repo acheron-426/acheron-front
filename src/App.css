@@ -78,7 +78,27 @@
   font-size: 1.5rem;
 }
 
-.details {
+.price-details {
   text-align: left;
-  font-size:smaller;
+  font-size:9px;
+}
+
+.book-details {
+  text-align: left;
+  font-size:9px;
+}
+
+.share-details {
+  text-align: left;
+  font-size:9px;
+}
+
+.market-details {
+  text-align: left;
+  font-size:9px;
+}
+
+.earnings-details {
+  text-align: left;
+  font-size:9px;
 }
