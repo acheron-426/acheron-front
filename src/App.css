@@ -34,14 +34,19 @@
   font-size: 1em;
   border-radius: 5px;
   cursor: pointer;
-  background-color: rgb(54, 202, 165);
+  background-color: rgb(54, 160, 202);
   border: none;
   color: rgb(15, 66, 54);
   transition: all 0.5s;
 }
 
 .fetch-button:hover {
-  background-color: rgb(40, 209, 209);
+  background-color: rgb(71, 180, 207);
+}
+
+.fetch-button:disabled {
+  color: rgb(200,200,200);
+  background-color: rgb(50, 50, 50);
 }
 
 .stocks {
@@ -50,7 +55,7 @@
 }
 
 .stock {
-  background: #fff;
+  background: rgb(93, 142, 172);
   position: relative;
   border-radius: 5px;
   padding: 10px;
@@ -58,7 +63,7 @@
   width: 300;
   color: #333;
   flex-basis: width;
-  background-color: rgb(165, 230, 230);
+  background-color: rgb(205, 209, 209);
 }
 
 .stock h3 {

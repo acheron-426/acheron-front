@@ -5,22 +5,27 @@ import axios from 'axios';
 
 function App() {
   const [stocks, setStocks] = useState(null);
-  const inputSymbols = "NIC.AX,GOR.AX, ADT.AX,ADV.AX,ATR.AX";
-  //const apiURL = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/auto-complete?q=TLS.AX&region=US";
-
+  const [symbols, setSymbols] = useState("NIC.AX,GOR.AX,ADT.AX,ADV.AX,ATR.AX");
+  
   const options = {
     method: 'GET',
     url: 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/v2/get-quotes',
-    params: {region: 'US', symbols: inputSymbols},
+    params: {region: 'US', symbols: symbols},
     headers: {
       'x-rapidapi-key': 'b1aa1b5067msh270379b26c5df56p184571jsn81ff8931fefc',
       'x-rapidapi-host': 'apidojo-yahoo-finance-v1.p.rapidapi.com'
     }
   };
 
-  const fetchData = async () => {
+  const doTheThing = (e) => {
+    setSymbols(e.target.value);
+  }
+
+  const fetchData = async (e) => {
+    e.target.disabled=true;
     const response = await axios.request(options);
     setStocks(response.data["quoteResponse"].result);
+    e.target.disabled=false;
   }
 
   return (
@@ -31,7 +36,7 @@ function App() {
       </header>
 
       <div>
-        <input className="symbol-input" type="text" />&nbsp;
+        <input className="symbol-input" id="test" type="text" onChange={doTheThing} onBlur={fetchData} value={symbols} />&nbsp;
         <button className="fetch-button" onClick={fetchData}>
           Fetch Data
         </button>
@@ -40,11 +45,11 @@ function App() {
       <div className="stocks">
         {stocks &&
           stocks.map((stock, index) => {
-
+            const cleanSymbol = stock.symbol.replace('.AX','');
             return (
               <div className="stock" key={index}>
                 <h3>{stock.shortName}</h3>
-                <h2>{stock.symbol}</h2>
+                <h2>{cleanSymbol}</h2>
 
                 <div className="details">
                 <p>Last price: {stock.regularMarketPrice}</p>
@@ -57,6 +62,76 @@ function App() {
                 <p>Price to sales: {stock.priceToSales}</p>
                 <p>Market cap: {stock.marketCap}</p>
                 <p>Price to book: {stock.priceToBook}</p>
+                <p>First trade date: {stock.firstTradeDateMilliseconds}</p>
+                <p>Price hint: {stock.priceHint}</p>
+                <p>Float shares: {stock.floatShares}</p>
+                <p>Short ratio: {stock.shortRatio}</p>
+                <p>Target price high: {stock.targetPriceHigh}</p>
+                <p>Target price low: {stock.targetPriceLow}</p>
+                <p>Target price mean: {stock.targetPriceMean}</p>
+                <p>Target price median: {stock.targetPriceMedian}</p>
+                <p>Held by insiders %: {stock.heldPercentInsiders}</p>
+                <p>Held by institutions %: {stock.heldPercentInstitutions}</p>
+                <p>Post-market change %: {stock.postMarketChangePercent}</p>
+                <p>Post-market time: {stock.postMarketTime}</p>
+                <p>Post-market price: {stock.postMarketPrice}</p>
+                <p>Post-market change: {stock.postMarketChange}</p>
+                <p>Change: {stock.regularMarketChange}</p>
+                <p>Change %: {stock.regularMarketChangePercent}</p>
+                <p>Market time: {stock.regularMarketTime}</p>
+                <p>Day high: {stock.regularMarketDayHigh}</p>
+                <p>Day range: {stock.regularMarketDayRange}</p>
+                <p>Day low: {stock.regularMarketDayLow}</p>
+                <p>Volume: {stock.regularMarketVolume}</p>
+                <p>Shares short: {stock.sharesShort}</p>
+                <p>Shares short prev month: {stock.sharesShortPrevMonth}</p>
+                <p>Short % of float: {stock.shortPercentFloat}</p>
+                <p>Prev close: {stock.regularMarketPreviousClose}</p>
+                <p>Bid size: {stock.bidSize}</p>
+                <p>Ask size: {stock.askSize}</p>
+                <p>Exchange: {stock.exchange}</p>
+                <p>Market: {stock.market}</p>
+                <p>Market open: {stock.regularMarketOpen}</p>
+                <p>Avg daily volume (3 month): {stock.averageDailyVolume3Month}</p>
+                <p>Avg daily volume (10 day): {stock.averageDailyVolume10Day}</p>
+                <p>Beta: {stock.beta}</p>
+                <p>52 week range: {stock.fiftyTwoWeekRange}</p>
+                <p>52 week high: {stock.fiftyTwoWeekHigh}</p>
+                <p>52 week high change: {stock.fiftyTwoWeekHighChange}</p>
+                <p>52 week high change %: {stock.fiftyTwoWeekHighChangePercent}</p>
+                <p>52 week low: {stock.fiftyTwoWeekLow}</p>
+                <p>52 week low change: {stock.fiftyTwoWeekLowChange}</p>
+                <p>52 week low change %: {stock.fiftyTwoWeekLowChangePercent}</p>
+                <p>Ex div date: {stock.exDividendDate}</p>
+                <p>Earnings timestamp: {stock.earningsTimestamp}</p>
+                <p>Earnings start timestamp: {stock.earningsTimestampStart}</p>
+                <p>Earnings end timestamp: {stock.earningsTimestampEnd}</p>
+                <p>Trailing PE: {stock.trailingPE}</p>
+                <p>PEG ratio: {stock.pegRatio}</p>
+                <p>Dividends per share: {stock.dividendsPerShare}</p>
+                <p>Market state: {stock.marketState}</p>
+                <p>EPS trailing twelve months: {stock.epsTrailingTwelveMonths}</p>
+                <p>EPS forward: {stock.epsForward}</p>
+                <p>EPS current year: {stock.epsCurrentYear}</p>
+                <p>EPS next quarter: {stock.epsNextQuarter}</p>
+                <p>Price EPS current year: {stock.priceEpsCurrentYear}</p>
+                <p>Price EPS next quarter: {stock.priceEpsNextQuarter}</p>
+                <p>Shares outstanding: {stock.sharesOutstanding}</p>
+                <p>Book value: {stock.bookValue}</p>
+                <p>50 day average: {stock.fiftyDayAverage}</p>
+                <p>50 day average change: {stock.fiftyDayAverageChange}</p>
+                <p>50 day average change %: {stock.fiftyDayAverageChangePercent}</p>
+                <p>200 day average: {stock.twoHundredDayAverage}</p>
+                <p>200 day average change: {stock.twoHundredDayAverageChange}</p>
+                <p>200 day average change %: {stock.twoHundredDayAverageChangePercent}</p>
+                <p>Forward PE: {stock.forwardPE}</p>
+                <p>Source Interval: {stock.sourceInterval}</p>
+                <p>Exchange data delayed by: {stock.exchangeDataDelayedBy}</p>
+                <p>Exchange timezone name: {stock.exchangeTimezoneName}</p>
+                <p>Exchange timezone short name: {stock.exchangeTimezoneShortName}</p>
+                <p>GMT off-by ms: {stock.gmtOffSetMilliseconds}</p>
+                <p>ESG populated: {stock.esgPopulated}</p>
+                <p>Tradeable: {stock.tradeable}</p>
                 </div>
               </div>
             );
