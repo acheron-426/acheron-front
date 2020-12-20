@@ -1,6 +1,4 @@
-const API = "https://www.asx.com.au/asx/1/share/GOR";
-
-export const stockData = [
+export const initialStockData = [
     {
         "code": "GOR",
         "isin_code": "AU000000GOR5",
