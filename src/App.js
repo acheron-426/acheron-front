@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function App() {
   const [stocks, setStocks] = useState(null);
-  const [symbols, setSymbols] = useState("NIC.AX,GOR.AX,ADT.AX,ADV.AX,ATR.AX");
+  const [symbols, setSymbols] = useState("GOR.AX,SVY.AX,PEX.AX,KDR.AX,SGQ.AX,BRB.AX,SFR.AX");
   
   const options = {
     method: 'GET',
@@ -46,21 +46,21 @@ function App() {
         {stocks &&
           stocks.map((stock, index) => {
             const cleanSymbol = stock.symbol.replace('.AX','');
-            const currentQuarterEstimate = (stock.quoteSummary.earnings === undefined)? "": stock.quoteSummary.earnings.earningsChart.currentQuarterEstimate;
-            const currentQuarterEstimateDate = (stock.quoteSummary.earnings === undefined)? "": stock.quoteSummary.earnings.earningsChart.currentQuarterEstimateDate;
-            const currentQuarterEstimateYear = (stock.quoteSummary.earnings === undefined)? "": stock.quoteSummary.earnings.earningsChart.currentQuarterEstimateYear;
-            const prevEarningsActual0 = (stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[0] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[0].actual;
-            const prevEarningsEstimate0 = (stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[0] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[0].estimate;
-            const prevEarningsDate0 = (stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[0] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[0].date;
-            const prevEarningsActual1 = (stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[1] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[1].actual;
-            const prevEarningsEstimate1 = (stock.quoteSummary.earnings === undefined) || stock.quoteSummary.earnings.earningsChart.quarterly[1] === undefined? "": stock.quoteSummary.earnings.earningsChart.quarterly[1].estimate;
-            const prevEarningsDate1 = (stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[1] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[1].date;
-            const prevEarningsActual2 = (stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[2] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[2].actual;
-            const prevEarningsEstimate2 = (stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[2] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[2].estimate;
-            const prevEarningsDate2 = (stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[2] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[2].date;
-            const prevEarningsActual3 = (stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[3] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[3].actual;
-            const prevEarningsEstimate3 = (stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[3] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[3].estimate;
-            const prevEarningsDate3 = (stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[3] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[3].date;
+            const currentQuarterEstimate = (stock.quoteSummary === undefined || stock.quoteSummary.earnings === undefined)? "": stock.quoteSummary.earnings.earningsChart.currentQuarterEstimate;
+            const currentQuarterEstimateDate = (stock.quoteSummary === undefined || stock.quoteSummary.earnings === undefined)? "": stock.quoteSummary.earnings.earningsChart.currentQuarterEstimateDate;
+            const currentQuarterEstimateYear = (stock.quoteSummary === undefined || stock.quoteSummary.earnings === undefined)? "": stock.quoteSummary.earnings.earningsChart.currentQuarterEstimateYear;
+            const prevEarningsActual0 = (stock.quoteSummary === undefined || stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[0] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[0].actual;
+            const prevEarningsEstimate0 = (stock.quoteSummary === undefined || stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[0] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[0].estimate;
+            const prevEarningsDate0 = (stock.quoteSummary === undefined || stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[0] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[0].date;
+            const prevEarningsActual1 = (stock.quoteSummary === undefined || stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[1] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[1].actual;
+            const prevEarningsEstimate1 = (stock.quoteSummary === undefined || stock.quoteSummary.earnings === undefined) || stock.quoteSummary.earnings.earningsChart.quarterly[1] === undefined? "": stock.quoteSummary.earnings.earningsChart.quarterly[1].estimate;
+            const prevEarningsDate1 = (stock.quoteSummary === undefined || stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[1] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[1].date;
+            const prevEarningsActual2 = (stock.quoteSummary === undefined || stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[2] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[2].actual;
+            const prevEarningsEstimate2 = (stock.quoteSummary === undefined || stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[2] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[2].estimate;
+            const prevEarningsDate2 = (stock.quoteSummary === undefined || stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[2] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[2].date;
+            const prevEarningsActual3 = (stock.quoteSummary === undefined || stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[3] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[3].actual;
+            const prevEarningsEstimate3 = (stock.quoteSummary === undefined || stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[3] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[3].estimate;
+            const prevEarningsDate3 = (stock.quoteSummary === undefined || stock.quoteSummary.earnings === undefined || stock.quoteSummary.earnings.earningsChart.quarterly[3] === undefined)? "": stock.quoteSummary.earnings.earningsChart.quarterly[3].date;
             return (
               <div className="stock" key={index}>
                 <h3>{stock.shortName}</h3>
